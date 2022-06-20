@@ -1,0 +1,1 @@
+INSERT INTO task ( title, detail) VALUES( 'test', 'testb');

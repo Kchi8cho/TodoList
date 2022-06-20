@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>TodoList</title>
+<link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+	<h1 th:text="${maintitle}"></h1>
+	<div th:object="${form}">
+		<p>----------------------------------------------------------------------------------
+		</p>
+		<p th:text="*{title}"></p> <br>
+		<p th:text="*{detail}"></p>
+		<p>----------------------------------------------------------------------------------
+
+		</p>
+	</div>
+	 <form action="#" method="get" th:action="@{/form}">
+		 <input type="hidden" name="title" th:value="${form.title}"> 
+		<input type="hidden" name="detail" th:value="${form.detail}">
+		<input type="submit" value="入力画面に戻る">
+	</form>
+	<form action="#" method="get" th:action="@{/complete}">
+		<input type="hidden" name="title" th:value="${form.title}">
+		<input type="hidden" name="detail" th:value="${form.detail}">
+		<input type="submit" value="完了画面へ進む">
+	</form> 
+</body>
+</html>

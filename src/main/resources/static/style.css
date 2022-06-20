@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+button{
+	background-color: #379ce8;
+	color: white;
+}
+table{
+	border-collapse:collapse;
+}
+h1{
+	
+	background:#379ce8;
+}
+
+table th{
+	background:#379ce8;
+	border:solid 1px #ccc;
+	color:#fff;
+	padding:10px;
+}
+
+table td{
+	border: solid 1px #ccc;
+	padding:10px;
+}
+
+.error{
+	color:red;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="UTF-8">
+	<title>TodoList</title>
+	<link rel="stylesheet" th:href="@{/style.css}" />
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<h1 th:text="${maintitle}"></h1>
+	<p>
+		<a href="/form" th:href="@{/form}">入力画面へ</a>
+	</p>
+	<table>
+		<tr>
+			<th>チェック</th>
+			<th>ID</th>
+			<th>タスクのタイトル</th>
+			<th>詳細</th>
+			<th>編集</th>
+			<th>削除</th>
+
+		</tr>
+		<tr th:each="res:${dbList}">
+			 <td>
+		<form th:action="@{/check/{id}/{done}(id=${res.id},done=${res.done})}" method="get">
+					<input type="checkbox" value="" >
+					<input type="hidden" name="done" value="${res.done}">
+				</form>
+				<!-- <th:block th:if="${res.done}">
+						<input type="submit" value="✔">
+						<input type="hidden" name="done" value="${res.done}"> 
+					</th:block>
+					<th:block th:if="${!res.done}">
+						<input type="submit" value="-">
+						 <input type="hidden" name="done" value="${res.done}"> 
+					</th:block> -->
+			</td> 
+			<td th:text="${res.id}">1</td>
+			<td th:text="${res.title}">タイトル</td>
+			<td th:text="${res.detail}">詳細</td>
+
+
+			<td>
+				<form th:action="@{/edit/{id}(id=${res.id})}">
+					<input type="submit" value="編集">
+				</form>
+			</td>
+			<td>
+				<form th:action="@{/del/{id}(id=${res.id})}">
+					<input type="submit" value="削除">
+				</form>
+			</td>
+		</tr>
+	</table>
+
+</body>
+
+</html>
